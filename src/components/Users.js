@@ -12,6 +12,13 @@ class Users extends Component {
     };
   }
 
+  // 오류 발생 코드
+  componentDidUpdate() {
+    if (this.props.users.length === 0) {
+      throw new Error("No users provided!");
+    }
+  }
+
   toggleUsersHandler() {
     // this.state.showUsers = false // 틀린 방법
     this.setState((curState) => {
